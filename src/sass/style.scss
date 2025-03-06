@@ -1,0 +1,82 @@
+@font-face {
+  font-family: Montserrat;
+  src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
+}
+// @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "./root.scss";
+@import "./spacing.scss";
+@import "./typography.scss";
+
+@import "./header.scss";
+@import "./footer.scss";
+@import "./ideal-travel.scss";
+
+@import "./detailstrip.scss";
+@import "./scroll.scss";
+@import"./itenarydays.scss";
+@import"./desktopgallery.scss";
+@import"./policy-banner.scss";
+// @import "./itenarydays.scss";
+
+*,body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal; 
+}
+
+body{
+  overflow :scroll !important;
+}
+
+body::after {
+  content: "";
+  background-image: url("../assests/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.045;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  mix-blend-mode: multiply;
+}
+
+
+.review-gallary .swiper {
+  width: 100%;
+  height: 70vh !important;
+  margin-top: 20px;
+  padding-bottom:40px !important ;
+  padding: 10px;
+}
+
+.review-gallary .swiper-slide {
+  padding: 4px;
+  height: 100% !important;
+}
+
+.review-gallary .custom-prev ,  .review-gallary .custom-next{
+  position:absolute !important;
+  top : 40%;
+  z-index : 5;
+  cursor: pointer;
+}
+
+#queryBox {
+  display: none; 
+}
+
+.thingToPackDescription , .thingToRent{
+  display: none; 
+}
+
+@media (min-width: 1024px) {
+  .thingToPackDescription , .thingToRent {
+    display: block; 
+  }
+}
+
+

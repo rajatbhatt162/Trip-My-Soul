@@ -1,0 +1,61 @@
+.h1,
+h1 {
+  font-size: var(--h1);
+}
+
+body {
+  font-size: var(--body);
+  color: var(--white);
+}
+
+.h2,
+h2 {
+  font-size: var(--h2);
+}
+
+.h3,
+h3 {
+  font-size: var(--h3);
+}
+
+.h4,
+h4 {
+  font-size: var(--h4);
+}
+
+/* Font Size */
+.fs-xs {
+  font-size: 0.75rem; /* 12px at 16px base */
+}
+
+.fs-sm {
+  font-size: 0.875rem; /* 14px at 16px base */
+}
+
+.fs-md {
+  font-size: 1rem; /* 16px at 16px base */
+}
+
+.fs-lg {
+  font-size: 1.125rem; /* 18px at 16px base */
+}
+
+.fs-xl {
+  font-size: 1.25rem; /* 20px at 16px base */
+}
+
+.fs-xxl {
+  font-size: 1.5rem; /* 24px at 16px base */
+}
+
+.fs-xxxl {
+  font-size: 1.875rem; /* 30px at 16px base */
+}
+
+.fs-xxxxl {
+  font-size: 2.25rem; /* 36px at 16px base */
+}
+
+.font-bold {
+  font-weight: "bold";
+}

@@ -1,0 +1,102 @@
+.Mainheader {
+  padding: 0;
+  .navigation-row {
+    background: #fff;
+    box-shadow: none;
+    border-bottom: 1px solid rgb(0 0 0 / 24%);
+    .nav-toolbar {
+      padding: 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      .logoArea {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        .logotms {
+          padding: 0;
+          flex-grow: 1;
+          display: inline-block;
+        }
+      }
+      .desktop_navigation {
+        padding: 0;
+        margin-left: 46px;
+        align-items: center;
+        display: flex;
+        flex-grow: 1;
+
+        a {
+          text-decoration: none;
+          padding: 16px 16px;
+          align-items: center;
+          justify-content: center;
+          display: flex;
+          font-weight: 500;
+          color: #2c2c2c;
+          transition: all 0.1s;
+          font-size: 14px;
+          font-weight: 600;
+          &:hover {
+            color: #ff7a00;
+          }
+        }
+      }
+      .header_right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2c2c2c;
+        .call_to_action {
+          padding: 0;
+          display: flex;
+          margin-right: 20px;
+          justify-content: center;
+          align-items: center;
+          svg {
+            margin-right: 10px;
+            border: 1px solid #000;
+            border-radius: 50em;
+            padding: 3px;
+          }
+          span {
+            font-size: 14px;
+          }
+          h5 {
+            font-size: 18px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+.Meganavigation {
+   padding: 20px;
+   display: flex;
+  .Meganavigation_link {
+    padding: 20px 0;
+    width: 100%;
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Mainheader .desktop_navigation {
+    display: none !important;
+  }
+  .Mainheader .navigation-row .nav-toolbar {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .Mainheader .desktop_navigation {
+    display: none !important;
+  }
+  .Mainheader .navigation-row .nav-toolbar {
+    display: block;
+  }
+}

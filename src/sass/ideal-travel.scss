@@ -1,0 +1,88 @@
+.ideal-travel{
+    padding-bottom: 50px;
+}
+.h4-variant {
+    // font-family: Inter sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.57px;
+    text-align: left;
+    color:black;
+  
+    
+  }
+
+  .p-variant{
+
+font-size: 18px;
+font-weight: 400;
+line-height: 29px;
+text-align: left;
+color: #7F7F7F;
+
+
+  }
+
+  .ideal-title{
+
+font-size: 18px;
+font-weight: 600;
+line-height: 29px;
+text-align: left;
+color: #4671FF;
+margin-left: 5px;
+
+
+  }
+
+.ideal-description{
+
+font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+text-align: left;
+color:#7F7F7F;
+
+
+}
+
+@media (max-width: 768px) {
+    .h4-variant {
+        // font-family: Inter sans-serif;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 43.57px;
+        text-align: left;
+        color:black;
+      
+        
+      }
+      .p-variant{
+
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: left;
+        color: #7F7F7F;
+        
+        
+          }
+          
+  .ideal-title{
+
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 23px;
+    text-align: left;
+    color: #4671FF;
+    margin-left: 5px;
+    
+    
+      }
+    
+  }
+
+
+  .MuiCardContent-root{
+    padding: 0;
+  }

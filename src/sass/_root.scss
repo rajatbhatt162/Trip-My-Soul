@@ -1,0 +1,204 @@
+:root {
+    --blue: #111744;
+    --yellow: #ffbf47;
+    --black: #000;
+    --green: #03b41f;
+    --amber: #c97b06;
+    --red: #c11010;
+    --gray: #9098a9;
+    --light-100: #d9d9d917;
+    --pinkish-orange: #ffbf074d;
+    --blue-100: #262567;
+    --blue-layer: #d9d9d917;
+    --skyblue:#007aff
+    --h1: 1.25rem;
+    --h2: 0.875rem;
+    --h3: 0.75rem;
+    --h4: 0.5rem;
+    --body: 1rem;
+    --font-family: "Montserrat", sans-serif;
+  }
+
+  br,
+  .space{
+    margin: 0.25em;
+  }
+
+  /* Cursor */
+  .not-allowed{
+    cursor:not-allowed;
+  }
+  .pointer{
+    cursor: pointer !important;
+  }
+
+  /* Display*/
+  .none{
+    display: none;
+  }
+  .block{
+    display: block;
+  }
+  .inlineBlock{
+    display: inline-block;
+  }
+  
+  /* Flex Classes*/
+
+  .flex{
+    display: flex;
+  }
+
+  .flex-1{
+    flex:1;
+  }
+
+  .flex-grow-1{
+    flex-grow:1;
+  }
+  .justify-end{
+    justify-content: end;
+  }
+
+  /* Gap Classes */
+  .gap-sm {
+    gap: 0.25rem;
+  }
+  
+  .gap-md {
+    gap: 0.5rem;
+  }
+  
+  .gap-lg {
+    gap: 0.75rem;
+  }
+  
+  .gap-xl {
+    gap: 1rem;
+  }
+  
+  .gap-xxl {
+    gap: 1.25rem;
+  }
+  
+  /* Flexbox Alignment */
+  .align-center {
+    align-items: center;
+  }
+  
+  .align-start {
+    align-items: flex-start;
+  }
+  
+  .align-end {
+    align-items: flex-end;
+  }
+  
+  /* Justify Content */
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .justify-start {
+    justify-content: flex-start;
+  }
+  
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-evenly{
+    justify-content :space-evenly;
+  }
+  
+  /* Flex Direction */
+  .flex-column {
+    flex-direction: column;
+  }
+  
+  .flex-row {
+    flex-direction: row;
+  }
+  
+  /* Flex Wrap */
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  
+  /* Overflow */
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  .overflow-scroll {
+    overflow: scroll;
+  }
+  
+  /* Border Radius */
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  
+  .rounded-md {
+    border-radius: 0.5rem;
+  }
+  
+  .rounded-lg {
+    border-radius: 1rem;
+  }
+  
+  .rounded-full {
+    border-radius: 9999px;
+  }
+
+  /* Position Classes*/
+  .relative{
+    position: relative;
+  }
+  .absolute{
+    position: absolute;
+  }
+  .fixed{
+    position: fixed;
+  }
+  .static{
+    position: static;
+  }
+  .sticky{
+    position: sticky;
+  }
+
+ /* Center Horizontally and Vertically */
+.position-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .no-rotate-x {
+    transition: 300ms ease all;
+    transform: rotate(0deg); /* Adjust the angle as needed */
+  }
+  
+  .rotate-x {
+    transition: 300ms ease all;
+    transform: rotate(180deg); /* Adjust the angle as needed */
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(217, 217, 217, 0.4);
+  }
+  
+  ::-webkit-scrollbar-thumb:active {
+    background: rgba(217, 217, 217, 0.6);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(217, 217, 217, 0.2);
+  }

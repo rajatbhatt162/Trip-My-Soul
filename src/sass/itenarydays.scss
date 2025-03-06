@@ -1,0 +1,254 @@
+// .timeline_wrapper {
+//     padding: 0;
+//     width: 80%;
+//     margin: 0 auto;
+//     .timeline-row {
+//       padding: 0;
+//       position: relative;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       background:white;
+//       text-align: center;
+//       border-radius: 50em;
+//       font-size: 14px;
+//       span {
+//         height: 80px;
+//         width: 80px;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         background:rgb(224, 217, 217);
+//         border-radius: 50em;
+//         margin-right: 10px;
+//         position: absolute;
+//         left: -30px;
+//         z-index: 9;
+//         font-size: 14px;
+//         font-weight:500;
+//         color:#2683ff
+//       }
+//       &::before,
+//       &::after {
+//         content: "";
+//         display: block;
+//         width: 50px;
+//         height: 50px;
+//         position: absolute;
+//         border: dashed;
+//         color: #aed0ff;
+//       }
+
+//     //   &::before{
+//     //     top: 133px;
+//     //     right: 10px;
+//     //     border-bottom: none;
+//     //     border-left: none;
+//     //     border-radius: 0px 13px 0px 0px;
+//     //     position: absolute;
+//     //     z-index: -1;
+//     //     color: #aed0ff;
+//     //     transform: rotate(178deg);
+//     //   }
+
+//       &::after {
+//         top: 133px;
+//         right: 10px;
+//         border-bottom: none;
+//         border-left: none;
+//         border-radius: 0px 13px 0px 0px;
+//         position: absolute;
+//         z-index: -1;
+//         color: #aed0ff;
+//       }
+
+//       &::before {
+//         content: "";
+//         display: block;
+//         height: 50px;
+//         position: absolute;
+//         top: -25px;
+//         left: 60px;
+//         width: calc(100% - 120px);
+//         border: dashed;
+//         border-bottom: none;
+//         border-right: none;
+//         border-left: none;
+//         color: #aed0ff;
+//       }
+  
+//       &::after {
+//         &::before {
+//         top: 106px;
+//         right: 10px;
+//         border-bottom: none;
+//         border-left: none;
+//         border-radius: 0px 13px 0px 0px;
+//         position: absolute;
+//         z-index: -1;
+//         color: #aed0ff;
+//       }
+  
+//       &::after {
+//         bottom: -27px;
+//         left: 12px;
+//         border-top: none;
+//         border-right: none;
+//         border-radius: 5px 0px 0px 13px;
+//         position: absolute;
+//         z-index: -1;
+//         color: #aed0ff;
+//       }
+//       }
+
+      
+  
+//       .detail_container {
+//         padding: 20px 0;
+//         p {
+//           margin: 0;
+//           font-size: 12px;
+//           font-weight: 500;
+//         }
+//         // &::after {
+//         //     content: "";
+//         //     display: block;
+//         //     height: 50px;
+//         //     position: absolute;
+//         //     top: -25px;
+//         //     left: 60px;
+//         //     width: calc(100% - 120px);
+//         //     border: dashed;
+//         //     border-bottom: none;
+//         //     border-right: none;
+//         //     border-left: none;
+//         //     color: #aed0ff;
+//         //   }
+//       }
+  
+//     //   &::before,
+//     //   &::after {
+//     //     content: "";
+//     //     display: block;
+//     //     width: 50px;
+//     //     height: 50px;
+//     //     position: absolute;
+//     //     border: dashed;
+//     //     color: #aed0ff;
+//     //   }
+  
+//     //   &::before {
+//     //     top: 106px;
+//     //     right: 10px;
+//     //     border-bottom: none;
+//     //     border-left: none;
+//     //     border-radius: 0px 13px 0px 0px;
+//     //     position: absolute;
+//     //     z-index: -1;
+//     //     color: #aed0ff;
+//     //   }
+  
+//     //   &::after {
+//     //     bottom: -27px;
+//     //     left: 12px;
+//     //     border-top: none;
+//     //     border-right: none;
+//     //     border-radius: 5px 0px 0px 13px;
+//     //     position: absolute;
+//     //     z-index: -1;
+//     //     color: #aed0ff;
+//     //   }
+//     }
+//     // .timeline-row.odd {
+//     //   padding: 0;
+//     //   position: relative;
+//     //   display: flex;
+//     //   align-items: center;
+//     //   justify-content: center;
+//     //   margin: 50px 0;
+//     //   background:white;
+//     //   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+//     //   border-radius: 15px;
+//     //   text-align: center;
+//     //   font-size: 14px;
+//     //   span {
+//     //     height: 80px;
+//     //     width: 80px;
+//     //     display: flex;
+//     //     align-items: center;
+//     //     justify-content: center;
+//     //     background:white;
+//     //     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+//     //     border-radius: 50em;
+//     //     position: absolute;
+//     //     right: -15px;
+//     //     z-index: 9;
+//     //     font-size: 14px;
+//     //     font-weight:500;
+//     //     color: #2683ff
+//     //   }
+  
+//     // //   .detail_container {
+//     // //     padding: 20px 0;
+       
+//     // //     p {
+//     // //       margin: 0;
+//     // //       font-size: 12px;
+//     // //       font-weight: 500;
+//     // //     }
+//     // //     &::after {
+//     // //       content: "";
+//     // //       display: block;
+//     // //       height: 50px;
+//     // //       position: absolute;
+//     // //       border: dashed;
+//     // //       border-bottom: none;
+//     // //       border-right: none;
+//     // //       border-left: none;
+//     // //       top: -25px;
+//     // //       left: 60px;
+//     // //       width: calc(100% - 120px);
+//     // //       color: #aed0ff;
+        
+//     // //     }
+//     // //   }
+  
+//     // //   &::before,
+//     // //   &::after {
+//     // //     content: "";
+//     // //     display: block;
+//     // //     width: 50px;
+//     // //     height: 50px;
+//     // //     position: absolute;
+//     // //     border: dashed;
+//     // //     color: #aed0ff;
+//     // //   }
+  
+//     // //   &::before {
+//     // //     top: 106px;
+//     // //     left: 10px;
+//     // //     border-bottom: none;
+//     // //     border-right: none;
+//     // //     border-radius: 13px 0px 0px 0px;
+//     // //     position: absolute;
+//     // //     z-index: -1;
+//     // //     color: #aed0ff;
+//     // //   }
+  
+//     // //   &::after {
+//     // //     bottom: -27px;
+//     // //     right: 12px;
+//     // //     border-top: none;
+//     // //     border-left: none;
+//     // //     border-radius: 0px 0px 13px 0px;
+//     // //     position: absolute;
+//     // //     z-index: -1;
+//     // //     color: #aed0ff;
+//     // //   }
+//     // }
+//   }
+  
+//   .timeline_wrapper .timeline-row.even + .detail_container::after {
+//     border: none;
+//   }
+  

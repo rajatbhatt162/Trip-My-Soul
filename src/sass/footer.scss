@@ -1,0 +1,18 @@
+.FooterSection {
+    margin-top: 60px;
+      position: relative;
+      background-color:#525354 ;
+         padding-top: 80px;
+        //  margin-top: 50px;
+             padding-bottom: 50px;
+    // background: url("/footerimg.png") no-repeat left top  #525354;
+    // padding-top: 270px;
+
+    // background-size: contain;
+}
+
+@media (max-width: 768px) {
+    .FooterSection{
+        padding-top: 60px;
+    }
+  }
