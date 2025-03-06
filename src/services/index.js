@@ -1,6 +1,4 @@
-//axiousInstance is used to fetch trek related data and process payments
 // import axios from "axios";
-//apiEndPointsConfig is an object containing API URLs and These URLs point to the backend where the data is actually stored.
 import { apiEndPointsConfig } from "./apiEndPointsConfig";
 import { axiosInstance } from "./axiosInstance";
 
@@ -31,37 +29,38 @@ export const getTrekDetails = async () => {
   }
 };
 
-export const getTrekDetailsById = async (categoryId) => {
-  try {
+export const getTrekDetailsById = async (categoryId) =>{
+  try{
     const res = await axiosInstance.get(apiEndPointsConfig.trekDetails);
-    return res.data.data.items.filter((item) => categoryId === item.fields.uid);
+    return res.data.data.items.filter((item) => categoryId === item.fields.uid)
   } catch (err) {
     return err;
   }
-};
+}
 
-export const getAllTrekByCategoryId = async (categoryId) => {
+export const getAllTrekByCategoryId = async(categoryId) => {
   const res = await axiosInstance.get(apiEndPointsConfig.trekCategories);
-  const result = res.data?.data?.items.filter(
-    (item) => categoryId === item.fields.uid
-  );
+  const result = res.data?.data?.items.filter((item) => categoryId === item.fields.uid)
   return result[0]?.fields?.trekDetailId;
-};
+  
+}
 
-export const paymentByPhonepe = async (data) => {
+export const paymentByPhonepe = async(data) => {
   try {
-    const res = await axiosInstance.post(apiEndPointsConfig.payment, data);
-    return res;
+    const res = await axiosInstance.post(apiEndPointsConfig.payment ,data);
+    return res
   } catch (error) {
     return error;
   }
-};
+  
+}
 
-export const slackNotifier = async (data) => {
+export const slackNotifier = async(data) => {
   try {
-    const res = await axiosInstance.post(apiEndPointsConfig.slack, data);
-    return res;
+    const res = await axiosInstance.post(apiEndPointsConfig.slack ,data);
+    return res
   } catch (error) {
     return error;
   }
-};
+  
+}

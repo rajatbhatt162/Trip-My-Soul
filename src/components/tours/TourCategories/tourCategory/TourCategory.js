@@ -5,8 +5,10 @@ import { Grid } from "@mui/material";
 import React from "react";
 
 
-// this is the card list show component
+// this is the card list show component 
 const TourCategory = ({ tourDetails, categoryId, categoryName }) => {
+  
+
   // const handleRedirect = (tourInfo) => {
   //   if (tourInfo) {
   //     const trekId = tourInfo.id || "defaultTrekId";

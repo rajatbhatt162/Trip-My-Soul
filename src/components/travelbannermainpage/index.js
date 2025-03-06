@@ -33,24 +33,20 @@ const TravelBanner = () => {
   const data = [
     {
       backgroundimage: "./kalpeshwarhd.png",
-      title: "Dont Think Just Book Your",
+      title: "Book Your",
       titlecolour: "#5d5a59",
       title1: "Trip to",
       title1colour: "#5d5a59",
       title2: [
-        { text: "Kedarkantha", color: "#fd4b8f" },
-        { text: "South", color: "#fd4b8f" },
         { text: "Uttarakhand", color: "#ffd600" },
         { text: "Himachal", color: "#5864ff" },
         { text: "Leh Ladakh", color: "#00c4a7" },
         { text: "Kashmir", color: "#fd4b8f" },
-        { text: "Kedarkantha", color: "#fd4b8f" },
-        { text: "South", color: "#fd4b8f" },
       ],
       title2colour: "#FFD600",
-      description: " Trip My Soul Where Adventure Meets Happiness",
+      description: "Where Adventure Meets Community",
       descriptioncolour: "#5d5a59",
-      hashtag: "#TripMySoul",
+      hashtag: "#TripMysoul",
       bannerTexts: ["Explore", "Journey", "Connect", "Repeat"],
       bannertextcolours: "#fdfdfd",
       rightbordertext: "3px solid #fdfdfd ",
@@ -249,7 +245,7 @@ const TravelBanner = () => {
                             }}
                           >
                             <CommonButton
-                              buttonname={"Contact Us"}
+                              buttonname={"Get In Touch"}
                               handleclickquery={handleclickquery}
                               fontSize={{ xs: "12px", sm: "15px", md: "17px" }}
                               tooltiptitle={"Get In Touch"}

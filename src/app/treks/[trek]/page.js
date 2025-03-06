@@ -1,14 +1,9 @@
+
 import { Box, Button, Grid, Typography } from "@mui/material";
 import React from "react";
 // import { useRouter } from "next/navigation";
 import TourCategories from "@/components/tours/TourCategories/TourCategories";
 import { CommonButton } from "@/components/commonbutton";
-
-// spiritual
-// monsoon
-// ladkh and spiti valey
-// explore the raoad trips---
-// south trips---
 
 const tourData = [
   // spiritual
@@ -6241,11 +6236,9 @@ const tourData = [
                     value: "Mcleodganj Adventure & Spiritual Exploration",
                     color: "grey",
                   },
-
                   {
                     text: 'Mcleodganj, often referred to as the "Little Lhasa (Tibet) of India," is nestled in the outskirts of Dharamshala, situated at an elevation of 2082 meters (6831 feet) above sea level.',
                   },
-                  
                   {
                     text: "This charming hill station offers a delightful blend of Tibetan and Indian cultures, set against the backdrop of the mighty Dhauladhar hills.",
                   },

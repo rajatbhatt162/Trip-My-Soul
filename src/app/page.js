@@ -27,7 +27,6 @@ const getData = async () => {
     const trekCategories = transformTrekCategories(res.data.data.items);
     const filteredCategories = trekCategories.filter((category) =>
       [
-        "Spirituals-Journey-101",
         "uttarakhand-110",
         "kashmir-122",
         "himachal-pardesh-112",
@@ -61,7 +60,6 @@ export default async function Home() {
   console.log("initial data in tms in home page", initialData);
   return (
     <Box>
-    {/* reuseable component */}
       <TravelBanner />
       <Tours allTrekCategories={initialData.allTrekCategories} />
       <IdealTravelCampanion />
@@ -73,7 +71,6 @@ export default async function Home() {
   );
 }
 
-//below data is used for seo in this generateMetadata is used to define title and description for SEO
 export async function generateMetadata({ params }) {
   return {
     title: "Trip My Soul | Unforgettable Travel, Trekking & Adventure Tours",

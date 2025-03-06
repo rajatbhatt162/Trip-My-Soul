@@ -9,9 +9,9 @@ export const TrekCategory = [
   },
   {
     id: 2,
-    name: "My Upcoming Winter Treks",
+    name: "Upcoming Winter Treks",
     description:
-      "Embrace the Winter Wonderland: Explore Our Breathtaking Winter Treks ",
+      "Embrace the Winter Wonderland: Explore Our Breathtaking Winter Treks",
     button: "View More ",
 
     trek: [8, 9, 10, 11],

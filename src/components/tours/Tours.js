@@ -1,14 +1,3 @@
-// import React from "react";
-// import TourCategories from "./TourCategories/TourCategories";
-
-// export const Tours = ({ allTrekCategories }) => {
-
-//   return <TourCategories allTrekCategories={allTrekCategories} />;
-// };
-
-
-
-
 import React from "react";
 import TourCategories from "./TourCategories/TourCategories";
 // import { getTrekCategories } from "@/services";
