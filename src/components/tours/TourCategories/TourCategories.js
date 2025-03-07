@@ -36,10 +36,10 @@ const TourCategories = ({ allTrekCategories }) => {
     return 0;
   });
   
-
+// "uttarakhand-110", "kashmir-122", "himachal-pardesh-112"
   const filteredTrekCategories = trekCategories.filter(
     (category) =>
-      !["uttarakhand-110", "kashmir-122", "himachal-pardesh-112"].includes(
+      ![""].includes(
         category.id
       )
   );
