@@ -24,15 +24,28 @@ const getData = async () => {
   };
 
   try {
+    console.log('Fetching trek categories...');
     const res = await getTrekCategories();
+    console.log('API Response:', res);
     
     // Validate API response
-    if (!res?.data?.data?.items) {
-      console.error('Invalid API response structure:', res);
+    if (!res) {
+      console.error('No response from API');
+      return initialPageData;
+    }
+
+    if (!res.data) {
+      console.error('No data in API response');
+      return initialPageData;
+    }
+
+    if (!res.data.data) {
+      console.error('Invalid data structure in API response');
       return initialPageData;
     }
 
     const items = res.data.data.items;
+    console.log('Items from API:', items);
     
     // Validate items is an array
     if (!Array.isArray(items)) {
@@ -40,7 +53,14 @@ const getData = async () => {
       return initialPageData;
     }
 
+    if (items.length === 0) {
+      console.error('API items array is empty');
+      return initialPageData;
+    }
+
+    console.log('Transforming categories...');
     const trekCategories = transformTrekCategories(items);
+    console.log('Transformed categories:', trekCategories);
     
     // Validate transformed categories
     if (!Array.isArray(trekCategories)) {
@@ -48,23 +68,38 @@ const getData = async () => {
       return initialPageData;
     }
 
+    if (trekCategories.length === 0) {
+      console.error('Transformed categories array is empty');
+      return initialPageData;
+    }
+
     const categoryOrder = [
+      "spiritual-101",
+      "trending-treks-on-tms-103",
+      "uttarakhand-110",
+      "kashmir-122",
+      "himachal-pardesh-112",
       "Spirituals-Journey-101",
       "south-trip-511",
       "weekend-gateway-104",
       "mansoon-treks-110",
       "summer-trek-109",
-      "trending-treks-on-tms-103",
-      "uttarakhand-110",
-      "kashmir-122",
       "upcoming-winter-trek-102",
-      "himachal-pardesh-112",
       "Explore-the-open-road-104"
     ];
 
+    console.log('Ordering categories...');
     const orderedCategories = categoryOrder
-      .map(id => trekCategories.find(cat => cat?.id === id))
+      .map(id => {
+        const category = trekCategories.find(cat => cat?.id === id);
+        if (!category) {
+          console.log(`No category found for ID: ${id}`);
+        }
+        return category;
+      })
       .filter(Boolean);
+
+    console.log('Ordered categories:', orderedCategories);
 
     const initialLimits = {};
     orderedCategories.forEach((category) => {
@@ -73,12 +108,15 @@ const getData = async () => {
       }
     });
 
-    return {
+    const result = {
       treks: orderedCategories[0]?.treks || [],
       trekLimits: initialLimits,
       regions: orderedCategories,
       allTrekCategories: items
     };
+
+    console.log('Final result:', result);
+    return result;
   } catch (error) {
     console.error("Error fetching trek categories:", error);
     return initialPageData;
