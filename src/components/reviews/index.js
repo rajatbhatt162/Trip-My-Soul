@@ -47,6 +47,9 @@ const ReviewsComponent = ({ reviewsection }) => {
         return null;
     }
 
+    // Only enable loop if we have enough slides
+    const shouldEnableLoop = reviewsection.length > slidesPerView;
+
     const handleClick = (url) => {
         window.open(url, "_blank");
     };
@@ -92,9 +95,9 @@ const ReviewsComponent = ({ reviewsection }) => {
 
                     <Grid container>
                         <Swiper
-                            slidesPerView={slidesPerView}
+                            slidesPerView={Math.min(slidesPerView, reviewsection.length)}
                             spaceBetween={30}
-                            loop={true}
+                            loop={shouldEnableLoop}
                             pagination={{
                                 clickable: true,
                             }}

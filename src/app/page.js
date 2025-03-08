@@ -1,84 +1,5 @@
-// import { Box } from "@mui/material";
-// import TravelBanner from "../components/travelbannermainpage";
-// import IdealTravelCampanion from "../components/idealtravelcampanion";
-// import Certifications from "../components/certifications";
-// import { Tours } from "../components/tours/Tours";
-// import HomePageFaQ from "@/components/homepagefaq";
-// import ThankYouModal from "@/components/thankyoumodel";
-// import { getTrekCategories } from "@/services";
-// import { transformTrekCategories } from "@/utils/transformTrekCategories";
-
-// const getData = async () => {
-//   let initialPageData = {
-//     treks: [],
-//     trekLimits: [],
-//     regions: [],
-//     allTrekCategories: [],
-//   };
-
-//   try {
-//     let res = {};
-//     try {
-//       res = await getTrekCategories();
-//     } catch (e) {
-//       throw e;
-//     }
-
-//     const trekCategories = transformTrekCategories(res.data.data.items);
-//     const filteredCategories = trekCategories.filter((category) =>
-//       [
-//         "uttarakhand-110",
-//         "kashmir-122",
-//         "himachal-pardesh-112",
-//         "trending-treks-on-tms-103",
-//       ].includes(category.id)
-//     );
-//     const initialLimits = {};
-//     filteredCategories.forEach((category) => {
-//       initialLimits[category.id] = 6;
-//     });
-
-//     initialPageData.treks = trekCategories[0].treks;
-//     initialPageData.trekLimits = initialLimits;
-//     initialPageData.regions = filteredCategories;
-//     initialPageData.allTrekCategories = res.data.data.items;
-//     return initialPageData;
-//   } catch (e) {
-//     console.log("Error in initial rendering", e);
-//     return initialPageData;
-//   }
-// };
-
-// export default async function Home() {
-//   let initialData = {};
-//   try {
-//     initialData = await getData();
-//   } catch (e) {
-//     throw e;
-//   }
-
-//   console.log("initial data in tms in home page", initialData);
-//   return (
-//     <Box>
-//       <TravelBanner />
-//       <Tours allTrekCategories={initialData.allTrekCategories} />
-//       <IdealTravelCampanion />
-//       <HomePageFaQ />
-//       <Certifications />
-
-//       <ThankYouModal />
-//     </Box>
-//   );
-// }
-
-// export async function generateMetadata({ params }) {
-//   return {
-//     title: "Trip My Soul | Unforgettable Travel, Trekking & Adventure Tours",
-//     description:
-//       "Tripmysoul.in-one of the top India trekking companies in India .Experience adventure trekking & camping with expert guides & trusted experience |Book now",
-//   };
-// }
 import { Box } from "@mui/material";
+import dynamic from 'next/dynamic';
 import TravelBanner from "../components/travelbannermainpage";
 import IdealTravelCampanion from "../components/idealtravelcampanion";
 import Certifications from "../components/certifications";
@@ -87,6 +8,12 @@ import HomePageFaQ from "@/components/homepagefaq";
 import ThankYouModal from "@/components/thankyoumodel";
 import { getTrekCategories } from "@/services";
 import { transformTrekCategories } from "@/utils/transformTrekCategories";
+import ErrorBoundary from '@/components/ErrorBoundary';
+
+// Dynamically import components that use client-side features
+const DynamicTravelBanner = dynamic(() => import("../components/travelbannermainpage"), {
+  ssr: false
+});
 
 const getData = async () => {
   let initialPageData = {
@@ -97,16 +24,30 @@ const getData = async () => {
   };
 
   try {
-    let res = {};
-    try {
-      res = await getTrekCategories();
-    } catch (e) {
-      throw e;
+    const res = await getTrekCategories();
+    
+    // Validate API response
+    if (!res?.data?.data?.items) {
+      console.error('Invalid API response structure:', res);
+      return initialPageData;
     }
 
-    const trekCategories = transformTrekCategories(res.data.data.items);
+    const items = res.data.data.items;
     
-    // Define the same category order as in TourCategories.js
+    // Validate items is an array
+    if (!Array.isArray(items)) {
+      console.error('API items is not an array:', items);
+      return initialPageData;
+    }
+
+    const trekCategories = transformTrekCategories(items);
+    
+    // Validate transformed categories
+    if (!Array.isArray(trekCategories)) {
+      console.error('Transformed categories is not an array:', trekCategories);
+      return initialPageData;
+    }
+
     const categoryOrder = [
       "Spirituals-Journey-101",
       "south-trip-511",
@@ -121,44 +62,58 @@ const getData = async () => {
       "Explore-the-open-road-104"
     ];
 
-    // Filter and sort categories based on the defined order
     const orderedCategories = categoryOrder
-      .map(id => trekCategories.find(cat => cat.id === id))
-      .filter(Boolean); // Remove any undefined entries
+      .map(id => trekCategories.find(cat => cat?.id === id))
+      .filter(Boolean);
 
     const initialLimits = {};
     orderedCategories.forEach((category) => {
-      initialLimits[category.id] = 6;
+      if (category?.id) {
+        initialLimits[category.id] = 6;
+      }
     });
 
-    initialPageData.treks = orderedCategories[0]?.treks || [];
-    initialPageData.trekLimits = initialLimits;
-    initialPageData.regions = orderedCategories;
-    initialPageData.allTrekCategories = res.data.data.items;
-    return initialPageData;
-  } catch (e) {
-    console.log("Error in initial rendering", e);
+    return {
+      treks: orderedCategories[0]?.treks || [],
+      trekLimits: initialLimits,
+      regions: orderedCategories,
+      allTrekCategories: items
+    };
+  } catch (error) {
+    console.error("Error fetching trek categories:", error);
     return initialPageData;
   }
 };
 
 export default async function Home() {
-  let initialData = {};
-  try {
-    initialData = await getData();
-  } catch (e) {
-    throw e;
-  }
+  const initialData = await getData().catch(error => {
+    console.error("Error in Home component:", error);
+    return {
+      treks: [],
+      trekLimits: {},
+      regions: [],
+      allTrekCategories: []
+    };
+  });
 
-  console.log("initial data in tms in home page", initialData);
+  // Ensure we have valid data before rendering
+  const hasValidData = Array.isArray(initialData.allTrekCategories) && initialData.allTrekCategories.length > 0;
+
   return (
     <Box>
-      <TravelBanner />
-      <Tours allTrekCategories={initialData.allTrekCategories} />
+      <DynamicTravelBanner />
+      <ErrorBoundary>
+        {hasValidData ? (
+          <Tours allTrekCategories={initialData.allTrekCategories} />
+        ) : (
+          <Box sx={{ textAlign: 'center', py: 4 }}>
+            Loading trek categories...
+          </Box>
+        )}
+      </ErrorBoundary>
       <IdealTravelCampanion />
       <HomePageFaQ />
       <Certifications />
-
       <ThankYouModal />
     </Box>
   );
@@ -171,4 +126,3 @@ export async function generateMetadata({ params }) {
       "Tripmysoul.in-one of the top India trekking companies in India .Experience adventure trekking & camping with expert guides & trusted experience |Book now",
   };
 }
-
