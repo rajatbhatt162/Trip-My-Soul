@@ -63,6 +63,7 @@ const getData = async () => {
   }
 };
 
+// Main home page component for Trip My Soul
 export default async function Home() {
   let initialData = {};
   try {
