@@ -4,20 +4,10 @@ import { axiosInstance } from "./axiosInstance";
 
 export const getTrekCategories = async () => {
   try {
-    console.log('Fetching trek categories from:', process.env.NEXT_PUBLIC_BASE_URL);
     const res = await axiosInstance.get(apiEndPointsConfig.trekCategories);
-    console.log('Trek categories response:', {
-      status: res.status,
-      itemCount: res.data?.data?.items?.length || 0
-    });
     return res;
   } catch (err) {
-    console.error('Error fetching trek categories:', {
-      message: err.message,
-      response: err.response?.data,
-      status: err.response?.status
-    });
-    throw err;
+    return err;
   }
 };
 

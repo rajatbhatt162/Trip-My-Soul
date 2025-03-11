@@ -92,19 +92,16 @@ const ReviewsComponent = ({ reviewsection }) => {
 
                     <Grid container>
                         <Swiper
-                            effect={"coverflow"}
-                            grabCursor={true}
-                            centeredSlides={true}
-                            loop={reviewsection.length >= 3}
-                            slidesPerView={"auto"}
-                            coverflowEffect={{
-                                rotate: 50,
-                                stretch: 0,
-                                depth: 100,
-                                modifier: 1,
-                                slideShadows: true,
+                            slidesPerView={slidesPerView}
+                            spaceBetween={30}
+                            loop={true}
+                            pagination={{
+                                clickable: true,
                             }}
-                            navigation={true}
+                            navigation={{
+                                nextEl: ".custom-next",
+                                prevEl: ".custom-prev",
+                            }}
                             modules={[Navigation, EffectCoverflow]}
                             className="mySwiper"
                         >
