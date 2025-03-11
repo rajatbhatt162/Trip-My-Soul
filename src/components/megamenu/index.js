@@ -39,11 +39,11 @@ export const MegaMenu = ({ onClose, allTrekCategories }) => {
   // useMemo(() => {
   //   fetchAllTrekCategories();
   // }, []);
-
+// "uttarakhand-110", "kashmir-122", "himachal-pardesh-112"
   const trekCategories = transformTrekCategories(allTrekCategories);
 
   const filteredTrekCategories = trekCategories?.filter((category) =>
-    ["uttarakhand-110", "kashmir-122", "himachal-pardesh-112"].includes(
+    [""].includes(
       category.id
     )
   );
