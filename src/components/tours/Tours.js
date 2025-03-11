@@ -5,31 +5,9 @@ import Loader from "@/common/loader";
 import { useTour } from "@/context/tourcontext/TourContaxt";
 
 export const Tours = ({ allTrekCategories }) => {
-  const [allTrekCategories, setAllTrekCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-  
-
-  const fetchAllTrekCategories = async () => {
-    setLoading(true);
-    try {
-      const res = await getTrekCategories();
-      // console.log(res.data.data.items, "trek categories");
-      setAllTrekCategories(res.data.data.items);
-    } catch (error) {
-      console.log("error in feching trek categories", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchAllTrekCategories();
-  }, []);
-
-
-
-  if (loading) {
-    return <Loader />;
+  if (!allTrekCategories || !Array.isArray(allTrekCategories)) {
+    console.warn('Tours: allTrekCategories is not an array or is undefined', allTrekCategories);
+    return null;
   }
 
   return <TourCategories allTrekCategories={allTrekCategories} />;

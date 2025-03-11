@@ -23,10 +23,12 @@ export default function ItineraryGalleryDesktop({ gallerysections }) {
             '--swiper-navigation-color': '#fff',
             '--swiper-pagination-color': '#fff',
           }}
+          loop={gallerysections.length >= 3}
           spaceBetween={10}
           navigation={true}
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs]}
+          className="mySwiper2"
         >
           {gallerysections && gallerysections.map((image, index) => (
             <SwiperSlide key={index}>
@@ -40,13 +42,13 @@ export default function ItineraryGalleryDesktop({ gallerysections }) {
         </Swiper>
         <Swiper
           onSwiper={setThumbsSwiper}
+          loop={gallerysections.length >= 3}
           spaceBetween={10}
           slidesPerView={4}
           freeMode={true}
           watchSlidesProgress={true}
           modules={[FreeMode, Navigation, Thumbs]}
-          className="gallery-swiper mySwiper"
-          style={{ marginTop: "15px" }}
+          className="mySwiper"
         >
           {gallerysections && gallerysections.map((image, index) => (
             <SwiperSlide key={index}>

@@ -9,6 +9,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { CommonButton } from "../commonbutton";
 import { useMediaQuery, useTheme } from "@mui/material";
 import SendYourQuery from "../sendyourquiry";
+import Image from "next/image";
 
 const TravelBanner = () => {
   const theme = useTheme();
@@ -63,8 +64,51 @@ const TravelBanner = () => {
 
     return () => clearInterval(interval);
   }, [colors.length]);
+
+  const images = [
+    "/banner1.jpg",
+    "/banner2.jpg",
+    "/banner3.jpg",
+    // Add more images as needed
+  ];
+
   return (
     <Box>
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        loop={images.length >= 3} // Only enable loop if there are 3 or more slides
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Autoplay, Pagination]}
+        className="mySwiper"
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={index}>
+            <Box
+              sx={{
+                position: "relative",
+                width: "100%",
+                height: { xs: "200px", sm: "400px", md: "600px" },
+              }}
+            >
+              <Image
+                src={image}
+                alt={`Banner ${index + 1}`}
+                layout="fill"
+                objectFit="cover"
+                priority={index === 0}
+              />
+            </Box>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
       <Grid container>
         <Swiper
           className="swiper"
