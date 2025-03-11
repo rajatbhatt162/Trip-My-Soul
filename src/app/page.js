@@ -17,14 +17,17 @@ const getData = async () => {
   };
 
   try {
-    let res = {};
-    try {
-      res = await getTrekCategories();
-    } catch (e) {
-      throw e;
+    console.log('Fetching trek categories from:', process.env.NEXT_PUBLIC_BASE_URL);
+    const res = await getTrekCategories();
+    
+    if (!res.data?.data?.items) {
+      console.error('Invalid response structure:', res);
+      throw new Error('Invalid response structure from API');
     }
 
     const trekCategories = transformTrekCategories(res.data.data.items);
+    console.log('Transformed trek categories:', trekCategories.length);
+
     const filteredCategories = trekCategories.filter((category) =>
       [
         "uttarakhand-110",
@@ -33,19 +36,30 @@ const getData = async () => {
         "trending-treks-on-tms-103",
       ].includes(category.id)
     );
+
+    console.log('Filtered categories:', filteredCategories.length);
+
     const initialLimits = {};
     filteredCategories.forEach((category) => {
       initialLimits[category.id] = 6;
     });
 
-    initialPageData.treks = trekCategories[0].treks;
-    initialPageData.trekLimits = initialLimits;
-    initialPageData.regions = filteredCategories;
-    initialPageData.allTrekCategories = res.data.data.items;
+    initialPageData = {
+      treks: trekCategories[0]?.treks || [],
+      trekLimits: initialLimits,
+      regions: filteredCategories,
+      allTrekCategories: res.data.data.items,
+    };
+
     return initialPageData;
   } catch (e) {
-    console.log("Error in initial rendering", e);
-    return initialPageData;
+    console.error("Error in getData:", e);
+    console.error("Error details:", {
+      message: e.message,
+      response: e.response?.data,
+      status: e.response?.status,
+    });
+    throw new Error('Failed to fetch trek data. Please check server logs.');
   }
 };
 
